@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AuthorRepo extends JpaRepository<Author, Integer> {
+public interface AuthorRepo extends JpaRepository<Author, Long> {
 
     @Query(value = "select * from author where email = ?1", nativeQuery = true)
     Author getAuthorByEmail(String email);
