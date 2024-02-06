@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -28,4 +29,7 @@ public class Book {
     private Author author;
 
     private int rate;
+
+    @ManyToMany(mappedBy = "likedBooks")
+    Set<User> likes;
 }

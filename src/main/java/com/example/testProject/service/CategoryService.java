@@ -28,8 +28,8 @@ public class CategoryService {
 
     public CategoryDto saveCategory(CategoryDto categoryDto) {
         try {
-            Optional<Category> existCategory = categoryRepo.findById(categoryDto.getId());
-            if (existCategory.isEmpty()) {
+            Category existCategory = categoryRepo.getCategoryByName(categoryDto.getName());
+            if (existCategory == null) {
                 categoryRepo.save(modelMapper.map(categoryDto, Category.class));
                 logger.info("Successfully saved a new category. {}", categoryDto.getName());
             } else {

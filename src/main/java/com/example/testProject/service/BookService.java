@@ -41,4 +41,29 @@ public class BookService {
         }
         return bookDto;
     }
+
+//    public BookDto ratingBook(String isbn) {
+//        try {
+//            Optional<Book> book = bookRepo.findById(isbn);
+//            if (existBook.isEmpty()) {
+//                bookRepo.save(modelMapper.map(bookDto, Book.class));
+//                logger.info("Successfully saved a new book. {}", bookDto.getIsbn());
+//            } else {
+//                logger.info("Book is exist. {}", bookDto.getIsbn());
+//            }
+//        } catch (Exception e) {
+//            logger.debug("Exception occured when saving a new book : {}", e.getMessage());
+//        }
+//        return bookDto;
+//    }
+
+    public BookDto searchBook(String isbn) {
+        Optional<Book> book = Optional.of(new Book());
+        try {
+            book = bookRepo.findById(isbn);
+        } catch (Exception e) {
+            logger.debug("Exception occured when getting a book : {}", e.getMessage());
+        }
+        return modelMapper.map(book, BookDto.class);
+    }
 }
