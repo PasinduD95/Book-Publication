@@ -25,7 +25,7 @@ public class User {
 
     private String email;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "user_like",
             joinColumns = @JoinColumn(name = "user_id"),

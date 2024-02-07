@@ -1,16 +1,16 @@
 package com.example.testProject.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Table(name = "book")
 public class Book {
 
@@ -28,8 +28,7 @@ public class Book {
     @JoinColumn(name = "authorId", nullable = false)
     private Author author;
 
-    private int rate;
-
     @ManyToMany(mappedBy = "likedBooks")
-    Set<User> likes;
+    private Set<User> user;
+
 }

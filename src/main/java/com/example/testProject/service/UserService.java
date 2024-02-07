@@ -1,8 +1,6 @@
 package com.example.testProject.service;
 
-import com.example.testProject.dto.AuthorDto;
 import com.example.testProject.dto.UserDto;
-import com.example.testProject.entity.Author;
 import com.example.testProject.entity.User;
 import com.example.testProject.repo.UserRepo;
 import org.modelmapper.ModelMapper;
@@ -11,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Set;
 
 @Service
 @Transactional
@@ -38,4 +38,5 @@ public class UserService {
         }
         return userDto;
     }
+
 }

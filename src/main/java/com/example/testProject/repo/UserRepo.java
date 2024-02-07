@@ -1,6 +1,5 @@
 package com.example.testProject.repo;
 
-import com.example.testProject.entity.Author;
 import com.example.testProject.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
